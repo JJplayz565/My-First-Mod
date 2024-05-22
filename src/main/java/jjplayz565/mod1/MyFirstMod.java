@@ -9,6 +9,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.Items;
+import net.minecraft.item.SwordItem;
+import net.minecraft.item.ToolItem;
 import net.minecraft.util.Identifier;
 import net.minecraft.registry.*;
 import net.minecraft.sound.SoundEvent;
@@ -24,7 +26,8 @@ public class MyFirstMod implements ModInitializer {
     public static final Logger LOGGER = LoggerFactory.getLogger("my-first-mod");
 	
 	public static final CustomItem SQUEAKY_BALL = Registry.register(Registries.ITEM, new Identifier("mod1", "squeaky_ball"), new CustomItem(new FabricItemSettings().maxCount(1)));
-	
+
+	public static ToolItem SQUEAKY_SWORD = Registry.register(Registries.ITEM, new Identifier("mod1", "squeaky_sword"), new SqueakySword(SqueakyBallToolMaterial.INSTANCE, 5, 1.6f, new FabricItemSettings()));
 
 	@Override
 	public void onInitialize() {
@@ -36,6 +39,10 @@ public class MyFirstMod implements ModInitializer {
 
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(content -> {
 			content.addAfter(Items.SNOWBALL, SQUEAKY_BALL);
+		});
+
+		ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(content -> {
+			content.addAfter(Items.TRIDENT, SQUEAKY_SWORD);
 		});
 
 		CustomSounds.initialize();

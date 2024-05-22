@@ -1,5 +1,9 @@
 {
     "item.mod1.squeaky_ball": "Squeaky Ball",
 
-    "item.mod1.squeaky_ball.tooltip": "A ball that squeaks..."
+    "item.mod1.squeaky_ball.tooltip": "A ball that squeaks...",
+
+    "item.mod1.squeaky_sword": "Squeaky Ball on a Stick",
+
+    "item.mod1.squeaky_sword.tooltip": "It's a ball that squeaks on a stick..."
 }
